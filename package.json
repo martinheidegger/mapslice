@@ -1,0 +1,32 @@
+{
+  "name": "mapslice",
+  "version": "0.0.1",
+  "description": "Slices a given image into tiles to be used for a interactive map display. (including command-line tool)",
+  "main": "index.js",
+  "keywords": [
+    "slice",
+    "image",
+    "manipulation"
+  ],
+  "bin": {
+    "mapslice": "./bin/mapslice"
+  },
+  "author": "Martin Heidegger <mh@leichtgewicht.at>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:martinheidegger/mapslice.git"
+  },
+  "bugs": {
+    "url": "https://github.com/martinheidegger/mapslice/issues"
+  },
+  "homepage": "https://github.com/martinheidegger/mapslice",
+  "dependencies": {
+    "async": "~0.2.9",
+    "gm": "~1.13.3",
+    "mkdirp": "~0.3.5",
+    "string": "~1.7.0",
+    "lodash": "~2.4.1",
+    "yargs": "~1.0.7"
+  }
+}
