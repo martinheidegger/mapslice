@@ -1,6 +1,6 @@
 {
   "name": "mapslice",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Slices a given image into tiles to be used for a interactive map display. (including command-line tool)",
   "main": "index.js",
   "keywords": [
@@ -27,6 +27,6 @@
     "mkdirp": "~0.3.5",
     "string": "~1.7.0",
     "lodash": "~2.4.1",
-    "yargs": "~1.0.7"
+    "optimist": "~0.6.0"
   }
 }
