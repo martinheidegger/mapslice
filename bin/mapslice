@@ -4,7 +4,7 @@ var path = require('path'),
     libPath = path.join(__dirname, '..', 'lib'),
     isPowerOfTwo = require(path.join(libPath, "util/isPowerOfTwo")),
     powerOfTwoMessage = "Tile-size has to be to the power of 2. e.g.: 128, 256, 512, ...",
-    options = require("yargs")
+    options = require("optimist")
         .default(require(path.join(libPath, "defaultSettings")))
         .usage("Slice a image to map tiles.\nUsage: $0 -f=[image]")
         .describe("file", "Image to be sliced.")
