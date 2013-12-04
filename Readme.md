@@ -63,7 +63,7 @@ mapSlicer.on("error", function(err) {
 });
 
 mapSlicer.on("progress", function(progress, total, current, file) {
-    console.info("Progress: "+Math.round(progress*100)+"%"");
+    console.info("Progress: "+Math.round(progress*100)+"%");
 });
 
 mapSlicer.on("end", function() {
