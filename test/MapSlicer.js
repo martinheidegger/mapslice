@@ -16,6 +16,15 @@ t.describe('Instantiation', function () {
 		})
 		done()
 	})
+	t.it('function instantiation', function (done) {
+		MapSlicer({
+			output: '.',
+			file: '.',
+			minWidth: 1000,
+			minHeight: 1000
+		})
+		done()
+	})
 })
 
 module.exports = t
