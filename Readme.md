@@ -69,6 +69,8 @@ mapSlicer.on("progress", function(progress, total, current, file) {
 mapSlicer.on("end", function() {
     console.info("Finished processing slices.");
 });
+
+mapSlicer.start();
 ```
 
 ## Size detection and scaling
