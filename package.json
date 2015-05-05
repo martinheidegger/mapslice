@@ -9,7 +9,7 @@
     "manipulation"
   ],
   "scripts": {
-    "test": "lab -c"
+    "test": "lab"
   },
   "bin": {
     "mapslice": "./bin/mapslice"
