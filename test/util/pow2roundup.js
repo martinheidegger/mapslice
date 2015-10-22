@@ -19,7 +19,7 @@ t.describe("Rounding up to the next power of two should", function () {
 		var num = +key
 		t.it(" result in " + tests[key] + " for " + key, function (done) {
 			t.expect(pow2roundup(key)).to.be.equals(tests[key])
-		    done()
+			done()
 		})
 	})
 })

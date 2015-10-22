@@ -6,11 +6,11 @@ t.describe("getPowerTwo should", function () {
 	for (var i=0; i<12; i++) {
 		(function (i, num) {
 			t.it("return " + i + " for " + num, function (done) {
-	    		t.expect(getPowerTwo(num)).to.be.equals(i)	
-	    		done()
+				t.expect(getPowerTwo(num)).to.be.equals(i)	
+				done()
 			})
 		})(i, num)
-    	num *= 2
+		num *= 2
 	}
 })
 
