@@ -1,5 +1,6 @@
 var t = require("../_test")()
 var outputResolve = require("../../lib/util/outputResolve")
+var path = require("path")
 
 t.describe("File resolving should apply templates. For example `", function () {
 	var x = 1
@@ -18,5 +19,11 @@ t.describe("File resolving should apply templates. For example `", function () {
 		});
 	})
 });
+t.describe("Special patterns", function () {
+	t.it("Should include the `google` pattern", function (done) {
+		t.expect(outputResolve("{google}", 1, 2, 3)).to.be.equal(path.join("1", "2", "3"))
+		done()
+	})
+})
 
 module.exports = t
