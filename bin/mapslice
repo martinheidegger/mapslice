@@ -35,6 +35,8 @@ var path = require('path'),
         .alias("minWidth", "w")
         .describe("minHeight", "Optionally fit minimal zoom level to passed-in height.")
         .alias("minHeight", "h")
+        .describe("skipEmptyTiles", "Ignore empty tiles.")
+        .string("skipEmptyTiles")
         ;
 
 require(path.join(libPath, 'client'))(options.argv);
