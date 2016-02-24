@@ -51,7 +51,8 @@ var mapSlicer = mapslice({
     background: "#0000000",            // (default: '#FFFFFFFF') Background color to be used for the tiles. More: http://ow.ly/rsluD
     tmp: "./temp",                     // (default: '.tmp') Temporary directory to be used to store helper files
     parallelLimit: 3,                  // (default: 5) Maximum parallel tasks to be run at the same time (warning: processes can consume a lot of memory!)
-    minWidth: 200                      // See explanation about Size detection below
+    minWidth: 200,                     // See explanation about Size detection below
+    skipEmptyTiles: true               // Skips all the empty tiles
 });
 
 mapSlicer.on("start", function(files, options) {
