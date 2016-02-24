@@ -1,6 +1,6 @@
 {
   "name": "mapslice",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Slices a given image into tiles to be used for a interactive map display. (including command-line tool)",
   "main": "index.js",
   "keywords": [
