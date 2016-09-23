@@ -1,5 +1,7 @@
 # mapslice - Image crop & slice tool
 
+[![Build Status](https://travis-ci.org/martinheidegger/mapslice.svg?branch=master)](https://travis-ci.org/martinheidegger/mapslice)
+
 mapslice is a tool to cut images into slices of various zoom levels for use in interactive maps.
 
 Javascript tools for high-performant viewing of huge images are plenty available, yet cropping and slicing images can be a pain with the given tools.
