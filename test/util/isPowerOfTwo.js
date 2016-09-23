@@ -1,4 +1,4 @@
-var t = require("../_test")()
+var test = require('tap').test
 var isPowerOfTwo = require("../../lib/util/isPowerOfTwo")
 
 var powers = [1]
@@ -7,21 +7,17 @@ for (var i = 1; i<20; ++i) {
 	powers.push(num *= 2);
 }
 
-t.describe("isPowerOfTwo", function () {
-	t.it("should match values that are power of two", function (done) {
-		powers.forEach(function (valid) {
-			t.expect(isPowerOfTwo(valid)).to.equal(true);
-		})
-		done();
-	});
-	t.it("should not match values that are not power of two", function (done) {
-		for (var i=0; i<10000; ++i) {
-			if (powers.indexOf(i) === -1) {
-				t.expect(isPowerOfTwo(i)).to.be.equal(false);
-			}
-		}
-		done();
-	});
+test("isPowerOfTwo should match values that are power of two", function (t) {
+	powers.forEach(function (valid) {
+		t.equals(isPowerOfTwo(valid), true);
+	})
+	t.end();
 });
-
-module.exports = t
+test("isPowerOfTwo should not match values that are not power of two", function (t) {
+	for (var i=0; i<10000; ++i) {
+		if (powers.indexOf(i) === -1) {
+			t.equals(isPowerOfTwo(i), false);
+		}
+	}
+	t.end();
+});
