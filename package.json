@@ -25,9 +25,9 @@
   },
   "homepage": "https://github.com/martinheidegger/mapslice",
   "dependencies": {
-    "async": "^1.5.2",
-    "gm": "^1.21.1",
-    "joi": "^8.0.2",
+    "async": "^2.0.1",
+    "gm": "^1.23.0",
+    "joi": "^9.0.4",
     "mkdirp": "^0.5.1",
     "optimist": "~0.6.0",
     "string": "^3.3.1"
