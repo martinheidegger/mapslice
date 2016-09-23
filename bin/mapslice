@@ -1,42 +1,41 @@
 #!/usr/bin/env node
 
-var path = require('path'),
-    libPath = path.join(__dirname, '..', 'lib'),
-    isPowerOfTwo = require(path.join(libPath, "util/isPowerOfTwo")),
-    powerOfTwoMessage = "Tile-size has to be to the power of 2. e.g.: 128, 256, 512, ...",
-    options = require("optimist")
-        .default(require(path.join(libPath, "defaultSettings")))
-        .usage("Slice a image to map tiles.\nUsage: $0 -f=[image]")
-        .describe("file", "Image to be sliced.")
-        .demand("file")
-        .string("file")
-        .alias("file", "f")
-        .alias("tileSize", "t")
-        .describe("tileSize", "Size of the generated tiles. ("+powerOfTwoMessage+")")
-        .check(function(options, value) {
-            if(!isPowerOfTwo(options.tileSize)) {
-                return powerOfTwoMessage;
-            }
-            return true;
-        })
-        .describe("background", "Background color to be used for the generated image. Accepted Format: http://ow.ly/rsluD")
-        .string("background")
-        .alias("background", "b")
-        .describe("tmp", "Temporary directory to store high-resolution versions for faster processing.")
-        .string("tmp")
-        .describe("imageMagick", "Use ImageMagick instead of GraphicsMagick.")
-        .boolean("imageMagick")
-        .alias("imageMagick", "i")
-        .describe("parallelLimit", "Maximum parallel image-processing operations.")
-        .alias("parallelLimit", "p")
-        .describe("output", "Pattern to be for generation of files. e.g.: tiles/{z}_{y}_{x}.png. Defaults to ./{input-file-name}/{z}/{y}/{x}.jpg")
-        .alias("output", "o")
-        .describe("minWidth", "Optionally fit minimal zoom level to passed-in width.")
-        .alias("minWidth", "w")
-        .describe("minHeight", "Optionally fit minimal zoom level to passed-in height.")
-        .alias("minHeight", "h")
-        .describe("skipEmptyTiles", "Ignore empty tiles.")
-        .boolean("skipEmptyTiles")
-        ;
+var path = require('path')
+var libPath = path.join(__dirname, '..', 'lib')
+var isPowerOfTwo = require(path.join(libPath, 'util/isPowerOfTwo'))
+var powerOfTwoMessage = 'Tile-size has to be to the power of 2. e.g.: 128, 256, 512, ...'
+var options = require('optimist')
+  .default(require(path.join(libPath, 'defaultSettings')))
+  .usage('Slice a image to map tiles.\nUsage: $0 -f=[image]')
+  .describe('file', 'Image to be sliced.')
+  .demand('file')
+  .string('file')
+  .alias('file', 'f')
+  .alias('tileSize', 't')
+  .describe('tileSize', 'Size of the generated tiles. (' + powerOfTwoMessage + ')')
+  .check(function (options, value) {
+    if (!isPowerOfTwo(options.tileSize)) {
+      return powerOfTwoMessage
+    }
+    return true
+  })
+  .describe('background', 'Background color to be used for the generated image. Accepted Format: http://ow.ly/rsluD')
+  .string('background')
+  .alias('background', 'b')
+  .describe('tmp', 'Temporary directory to store high-resolution versions for faster processing.')
+  .string('tmp')
+  .describe('imageMagick', 'Use ImageMagick instead of GraphicsMagick.')
+  .boolean('imageMagick')
+  .alias('imageMagick', 'i')
+  .describe('parallelLimit', 'Maximum parallel image-processing operations.')
+  .alias('parallelLimit', 'p')
+  .describe('output', 'Pattern to be for generation of files. e.g.: tiles/{z}_{y}_{x}.png. Defaults to ./{input-file-name}/{z}/{y}/{x}.jpg')
+  .alias('output', 'o')
+  .describe('minWidth', 'Optionally fit minimal zoom level to passed-in width.')
+  .alias('minWidth', 'w')
+  .describe('minHeight', 'Optionally fit minimal zoom level to passed-in height.')
+  .alias('minHeight', 'h')
+  .describe('skipEmptyTiles', 'Ignore empty tiles.')
+  .boolean('skipEmptyTiles')
 
-require(path.join(libPath, 'client'))(options.argv);
+require(path.join(libPath, 'client'))(options.argv)
