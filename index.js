@@ -1,1 +1,1 @@
-module.exports = require("./lib/MapSlicer");
+module.exports = require('./lib/MapSlicer')

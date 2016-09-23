@@ -9,7 +9,7 @@
     "manipulation"
   ],
   "scripts": {
-    "test": "tap test/**/*.js"
+    "test": "standard && tap test/**/*.js"
   },
   "bin": {
     "mapslice": "./bin/mapslice"
@@ -33,6 +33,7 @@
     "string": "^3.3.1"
   },
   "devDependencies": {
+    "standard": "^8.1.0",
     "tap": "^7.1.2"
   }
 }
