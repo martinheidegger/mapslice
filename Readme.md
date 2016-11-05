@@ -55,7 +55,10 @@ var mapSlicer = mapslice({
     tmp: "./temp",                     // (default: '.tmp') Temporary directory to be used to store helper files
     parallelLimit: 3,                  // (default: 5) Maximum parallel tasks to be run at the same time (warning: processes can consume a lot of memory!)
     minWidth: 200,                     // See explanation about Size detection below
-    skipEmptyTiles: true               // Skips all the empty tiles
+    skipEmptyTiles: true,              // Skips all the empty tiles
+    bitdepth: 8,                       // (optional) See http://aheckmann.github.io/gm/docs.html#dither
+    dither: true,                      // (optional) See http://aheckmann.github.io/gm/docs.html#bitdepth
+    colors: 128,                       // (optional) See http://aheckmann.github.io/gm/docs.html#colors
 });
 
 mapSlicer.on("start", function(files, options) {
