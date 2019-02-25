@@ -11,7 +11,7 @@
   "scripts": {
     "test": "npm run test:lint && npm run test:unit",
     "test:lint": "standard",
-    "test:unit": "tap test/**/*.js"
+    "test:unit": "tap test/*.js test/**/*.js"
   },
   "bin": {
     "mapslice": "./bin/mapslice"
