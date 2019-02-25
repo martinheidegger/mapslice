@@ -1,7 +1,8 @@
-var test = require('tap').test
-var pow2roundup = require('../../lib/util/pow2roundup')
+'use strict'
+const test = require('tap').test
+const pow2roundup = require('../../lib/util/pow2roundup')
 
-var tests = {
+const tests = {
   0: 1,
   1: 1,
   2: 2,
@@ -14,9 +15,9 @@ var tests = {
   16: 16,
   17: 32
 }
-Object.keys(tests).forEach(function (key) {
-  test('Rounding up to the next power of two should result in ' + tests[key] + ' for ' + key, function (t) {
+for (const key in tests) {
+  test(`Rounding up to the next power of two should result in ${tests[key]} for ${key}`, t => {
     t.equals(pow2roundup(key), tests[key])
     t.end()
   })
-})
+}
