@@ -100,7 +100,5 @@ To speed up performance mapslice stores a prescaled version of the each zoom-lev
 
 ## License
 
-MIT
-
-
+[MIT](./LICENSE)
 
