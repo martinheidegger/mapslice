@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+var version = /^v(\d+)/.exec(process.version)[1]
+if (parseInt(version, 10) < 6) {
+  console.error('Too old Nodejs version (' + version + '), at least version 6 is required.')
+  process.exit(1)
+}
 
 var path = require('path')
 var libPath = path.join(__dirname, '..', 'lib')
