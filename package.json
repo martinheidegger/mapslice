@@ -35,15 +35,15 @@
   },
   "homepage": "https://github.com/martinheidegger/mapslice",
   "dependencies": {
-    "async": "^2.0.1",
-    "gm": "^1.23.0",
-    "joi": "^9.0.4",
+    "async": "^2.6.2",
+    "gm": "^1.23.1",
+    "joi": "^14.3.1",
     "mkdirp": "^0.5.1",
-    "string": "^3.3.1",
-    "yargs": "^6.3.0"
+    "string-template": "^1.0.0",
+    "yargs": "^13.2.1"
   },
   "devDependencies": {
-    "standard": "^8.1.0",
-    "tap": "^7.1.2"
+    "standard": "^12.0.1",
+    "tap": "^12.5.3"
   }
 }
