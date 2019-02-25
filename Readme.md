@@ -81,10 +81,6 @@ $ mapslice -f test.jpg -w=1000
 
 Will fit the smallest size to be exactly 1000 pixels wide and zoom up from there.
 
-## Image formats
-
-mapslice relies on [gd](https://github.com/mikesmullin/node-gd) for image processing. gd detect the file format for reading **and** writing using the passed-in file extension.
-
 ### Note
 
 To speed up performance mapslice stores a prescaled version of the each zoom-level in a temorary folder and then just crops off of that. These temporary files can become quite big as they are stored with low compression and high quality in sgi files.
