@@ -36,7 +36,7 @@
     "url": "https://github.com/martinheidegger/mapslice/issues"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "homepage": "https://github.com/martinheidegger/mapslice",
   "dependencies": {

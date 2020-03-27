@@ -1,15 +1,16 @@
 language: node_js
 node_js:
-  - "11"
+  - "node"
+  - "12"
   - "10"
   - "8"
-  - "6"
 before_script:
   - > # node > 10 → lint
     node_version=$(node -v);
-    if  [ ${node_version:1:3} = "10." ]; then
+    if  [ ${node_version:1:3} = "12." ]; then
       npm run test:lint;
     fi
+  - > gm version
 script: npm run test:unit
 addons:
   apt:
