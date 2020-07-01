@@ -1,2 +1,6 @@
 example
 test
+.tmp
+package-lock.json
+.nyc_output
+temp
