@@ -47,11 +47,11 @@ const MapSlicer = require('mapslice')
 
 // The parameters passed here are equal to the command-line parameters
 const mapSlicer = new MapSlicer({
-  file: 'myImage.jpg',               // (required) Huge image to slice
-  output: 'myImage/{z}/{y}/{x}.png', // Output file pattern
+  file: `${__dirname}/myImage.jpg`,               // (required) Huge image to slice
+  output: `${__dirname}/myImage/{z}/{y}/{x}.png`, // Output file pattern
   tileSize: 512,                     // (default: 256) Tile-size to be used
   imageMagick: true,                 // (default: false) If (true) then use ImageMagick instead of GraphicsMagick
-  background: '#0000000',            // (default: '#FFFFFFFF') Background color to be used for the tiles. More: http://ow.ly/rsluD
+  background: '#00000000',           // (default: '#FFFFFFFF') Background color to be used for the tiles. More: http://ow.ly/rsluD
   tmp: './temp',                     // (default: '.tmp') Temporary directory to be used to store helper files
   parallelLimit: 3,                  // (default: 5) Maximum parallel tasks to be run at the same time (warning: processes can consume a lot of memory!)
   minWidth: 200,                     // See explanation about Size detection below
@@ -69,7 +69,6 @@ mapSlicer.on('warning', err => console.warn(err))
 mapSlicer.on('progress', progress => console.info(`Progress: ${Math.round(progress*100)}%`))
 mapSlicer.on('end', () => console.info('Finished processing slices.') )
 mapSlicer.start()
-```
 
 ## Size detection and scaling
 
