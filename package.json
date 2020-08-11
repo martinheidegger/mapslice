@@ -17,7 +17,7 @@
   "bin": {
     "mapslice": "./bin/mapslice"
   },
-  "author": "Martin Heidegger <mh@leichtgewicht.at>",
+  "author": "Martin Heidegger <martin.heidegger@gmail.com>",
   "contributors": [
     {
       "name": "Aaron Blondeau",
