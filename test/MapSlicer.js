@@ -38,3 +38,12 @@ test('run mapslicer while already running will fail', async t => {
   await t.rejects(n.start(), { code: 'ERUNNING' })
   await t.rejects(p, { code: 'ENOTFOUND' })
 })
+
+test('Adding test that options are combined from both the constructor and on start', async t => {
+  const n = new MapSlicer({
+    file: './non-existent'
+  })
+  await t.rejects(n.start({
+    output: 1234
+  }), { code: 'MVALSCHEMA' })
+})
