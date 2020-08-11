@@ -21,8 +21,20 @@ test('function instantiation minWidth/minHeight', function (t) {
   t.end()
 })
 
-test('running while running will result in an error', async t => {
+test('missing options will result in error', async t => {
   const n = new MapSlicer({
   })
-  await n.start()
+  await t.rejects(n.start(), {
+    code: 'MVALSCHEMA',
+    message: '"file" is required'
+  })
+})
+
+test('run mapslicer while already running will fail', async t => {
+  const n = new MapSlicer({
+    file: './non-existent'
+  })
+  const p = n.start()
+  await t.rejects(n.start(), { code: 'ERUNNING' })
+  await t.rejects(p, { code: 'ENOTFOUND' })
 })
