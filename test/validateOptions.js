@@ -26,7 +26,6 @@ test('default output', t => {
     parallelLimit: 5,
     background: '#FFFFFFFF',
     imageMagick: false,
-    autoStart: false,
     skipEmptyTiles: false,
     output: 'a/{google}.jpg',
     gm: require('gm')

@@ -1,13 +1,13 @@
 language: node_js
 node_js:
   - "node"
+  - "14"
   - "12"
   - "10"
-  - "8"
 before_script:
-  - > # node > 10 → lint
+  - > # node > 12 → lint
     node_version=$(node -v);
-    if  [ ${node_version:1:3} = "12." ]; then
+    if  [ ${node_version:1:3} = "14." ]; then
       npm run test:lint;
     fi
   - > gm version

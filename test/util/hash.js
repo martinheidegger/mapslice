@@ -18,10 +18,7 @@ for (const [input, expectedHash] of pairs) {
 const file = path.join(__dirname, '..', '..', 'example', 'japan.jpg')
 const expectedFileHash = '290db76df023bb4195becd225080a7daf23bb52e'
 
-test(`hash.file should return ${expectedFileHash} for ${file}`, t => {
-  hash.file(file, (err, fileHash) => {
-    t.equals(err, null)
-    t.equals(fileHash, expectedFileHash)
-    t.end()
-  })
+test(`hash.file should return ${expectedFileHash} for ${file}`, async t => {
+  const fileHash = await hash.file(file)
+  t.equals(fileHash, expectedFileHash)
 })

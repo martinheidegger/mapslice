@@ -20,3 +20,9 @@ test('function instantiation minWidth/minHeight', function (t) {
   t.notEquals(n, null)
   t.end()
 })
+
+test('running while running will result in an error', async t => {
+  const n = new MapSlicer({
+  })
+  await n.start()
+})

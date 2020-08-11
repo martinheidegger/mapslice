@@ -22,8 +22,7 @@ const mapSlicer = new MapSlicer({
 })
 
 mapSlicer.on('start', (files, options) => console.info(`Starting to process ${files} files.`))
-mapSlicer.on('error', err => console.error(err))
 mapSlicer.on('warning', err => console.warn(err))
 mapSlicer.on('progress', progress => console.info(`Progress: ${Math.round(progress * 100)}%`))
 mapSlicer.on('end', () => console.info('Finished processing slices.'))
-mapSlicer.start()
+mapSlicer.start().catch(err => console.error(err))

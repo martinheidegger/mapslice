@@ -18,16 +18,20 @@ test('single tile', t => {
     size: 500,
     tiles: [
       {
-        tile: { x: 0, y: 0 },
+        xIndex: 0,
+        yIndex: 0,
         x: 0,
-        y: 0
+        y: 0,
+        width: 500,
+        height: 500,
+        zoomLevel: 0
       }
     ]
   }])
   t.end()
 })
 
-test('non-full-image', t => {
+test('image 1000x1000, scaled to min-width of 400 with 250 tiles', t => {
   const levels = calculateLevelData(1000, 1000, {
     minWidth: 400,
     minHeight: 400,
@@ -42,10 +46,10 @@ test('non-full-image', t => {
     x: 50,
     y: 50,
     tiles: [
-      { tile: { x: -50, y: -50 }, x: 0, y: 0 },
-      { tile: { x: 200, y: -50 }, x: 1, y: 0 },
-      { tile: { x: -50, y: 200 }, x: 0, y: 1 },
-      { tile: { x: 200, y: 200 }, x: 1, y: 1 }
+      { x: 0, y: 0, xIndex: 0, yIndex: 0, width: 250, height: 250, zoomLevel: 1 },
+      { x: 250, y: 0, xIndex: 1, yIndex: 0, width: 250, height: 250, zoomLevel: 1 },
+      { x: 0, y: 250, xIndex: 0, yIndex: 1, width: 250, height: 250, zoomLevel: 1 },
+      { x: 250, y: 250, xIndex: 1, yIndex: 1, width: 250, height: 250, zoomLevel: 1 }
     ]
   }, {
     width: 800,
@@ -56,28 +60,28 @@ test('non-full-image', t => {
     y: 100,
     size: 1000,
     tiles: [
-      { tile: { x: -100, y: -100 }, x: 0, y: 0 },
-      { tile: { x: 150, y: -100 }, x: 1, y: 0 },
-      { tile: { x: 400, y: -100 }, x: 2, y: 0 },
-      { tile: { x: 650, y: -100 }, x: 3, y: 0 },
-      { tile: { x: -100, y: 150 }, x: 0, y: 1 },
-      { tile: { x: 150, y: 150 }, x: 1, y: 1 },
-      { tile: { x: 400, y: 150 }, x: 2, y: 1 },
-      { tile: { x: 650, y: 150 }, x: 3, y: 1 },
-      { tile: { x: -100, y: 400 }, x: 0, y: 2 },
-      { tile: { x: 150, y: 400 }, x: 1, y: 2 },
-      { tile: { x: 400, y: 400 }, x: 2, y: 2 },
-      { tile: { x: 650, y: 400 }, x: 3, y: 2 },
-      { tile: { x: -100, y: 650 }, x: 0, y: 3 },
-      { tile: { x: 150, y: 650 }, x: 1, y: 3 },
-      { tile: { x: 400, y: 650 }, x: 2, y: 3 },
-      { tile: { x: 650, y: 650 }, x: 3, y: 3 }
+      { x: 0, y: 0, xIndex: 0, yIndex: 0, width: 250, height: 250, zoomLevel: 2 },
+      { x: 250, y: 0, xIndex: 1, yIndex: 0, width: 250, height: 250, zoomLevel: 2 },
+      { x: 500, y: 0, xIndex: 2, yIndex: 0, width: 250, height: 250, zoomLevel: 2 },
+      { x: 750, y: 0, xIndex: 3, yIndex: 0, width: 250, height: 250, zoomLevel: 2 },
+      { x: 0, y: 250, xIndex: 0, yIndex: 1, width: 250, height: 250, zoomLevel: 2 },
+      { x: 250, y: 250, xIndex: 1, yIndex: 1, width: 250, height: 250, zoomLevel: 2 },
+      { x: 500, y: 250, xIndex: 2, yIndex: 1, width: 250, height: 250, zoomLevel: 2 },
+      { x: 750, y: 250, xIndex: 3, yIndex: 1, width: 250, height: 250, zoomLevel: 2 },
+      { x: 0, y: 500, xIndex: 0, yIndex: 2, width: 250, height: 250, zoomLevel: 2 },
+      { x: 250, y: 500, xIndex: 1, yIndex: 2, width: 250, height: 250, zoomLevel: 2 },
+      { x: 500, y: 500, xIndex: 2, yIndex: 2, width: 250, height: 250, zoomLevel: 2 },
+      { x: 750, y: 500, xIndex: 3, yIndex: 2, width: 250, height: 250, zoomLevel: 2 },
+      { x: 0, y: 750, xIndex: 0, yIndex: 3, width: 250, height: 250, zoomLevel: 2 },
+      { x: 250, y: 750, xIndex: 1, yIndex: 3, width: 250, height: 250, zoomLevel: 2 },
+      { x: 500, y: 750, xIndex: 2, yIndex: 3, width: 250, height: 250, zoomLevel: 2 },
+      { x: 750, y: 750, xIndex: 3, yIndex: 3, width: 250, height: 250, zoomLevel: 2 }
     ]
   }])
   t.end()
 })
 
-test('non-full-image', t => {
+test('800x3000 on 500 tile-size with min width 400, skipping empty tiles, left and right and top and bottom', t => {
   const levels = calculateLevelData(800, 3000, {
     minWidth: 400,
     minHeight: 1500,
@@ -93,14 +97,14 @@ test('non-full-image', t => {
     x: 800,
     y: 250,
     tiles: [
-      { tile: { x: -300, y: -250 }, x: 1, y: 0 },
-      { tile: { x: 200, y: -250 }, x: 2, y: 0 },
-      { tile: { x: -300, y: 250 }, x: 1, y: 1 },
-      { tile: { x: 200, y: 250 }, x: 2, y: 1 },
-      { tile: { x: -300, y: 750 }, x: 1, y: 2 },
-      { tile: { x: 200, y: 750 }, x: 2, y: 2 },
-      { tile: { x: -300, y: 1250 }, x: 1, y: 3 },
-      { tile: { x: 200, y: 1250 }, x: 2, y: 3 }
+      { x: 500, y: 0, xIndex: 1, yIndex: 0, width: 500, height: 500, zoomLevel: 2 },
+      { x: 1000, y: 0, xIndex: 2, yIndex: 0, width: 500, height: 500, zoomLevel: 2 },
+      { x: 500, y: 500, xIndex: 1, yIndex: 1, width: 500, height: 500, zoomLevel: 2 },
+      { x: 1000, y: 500, xIndex: 2, yIndex: 1, width: 500, height: 500, zoomLevel: 2 },
+      { x: 500, y: 1000, xIndex: 1, yIndex: 2, width: 500, height: 500, zoomLevel: 2 },
+      { x: 1000, y: 1000, xIndex: 2, yIndex: 2, width: 500, height: 500, zoomLevel: 2 },
+      { x: 500, y: 1500, xIndex: 1, yIndex: 3, width: 500, height: 500, zoomLevel: 2 },
+      { x: 1000, y: 1500, xIndex: 2, yIndex: 3, width: 500, height: 500, zoomLevel: 2 }
     ]
   }, {
     width: 800,
@@ -111,24 +115,24 @@ test('non-full-image', t => {
     y: 500,
     size: 4000,
     tiles: [
-      { tile: { x: -100, y: 0 }, x: 3, y: 1 },
-      { tile: { x: 400, y: 0 }, x: 4, y: 1 },
-      { tile: { x: -100, y: 500 }, x: 3, y: 2 },
-      { tile: { x: 400, y: 500 }, x: 4, y: 2 },
-      { tile: { x: -100, y: 1000 }, x: 3, y: 3 },
-      { tile: { x: 400, y: 1000 }, x: 4, y: 3 },
-      { tile: { x: -100, y: 1500 }, x: 3, y: 4 },
-      { tile: { x: 400, y: 1500 }, x: 4, y: 4 },
-      { tile: { x: -100, y: 2000 }, x: 3, y: 5 },
-      { tile: { x: 400, y: 2000 }, x: 4, y: 5 },
-      { tile: { x: -100, y: 2500 }, x: 3, y: 6 },
-      { tile: { x: 400, y: 2500 }, x: 4, y: 6 }
+      { x: 1500, y: 500, xIndex: 3, yIndex: 1, width: 500, height: 500, zoomLevel: 3 },
+      { x: 2000, y: 500, xIndex: 4, yIndex: 1, width: 500, height: 500, zoomLevel: 3 },
+      { x: 1500, y: 1000, xIndex: 3, yIndex: 2, width: 500, height: 500, zoomLevel: 3 },
+      { x: 2000, y: 1000, xIndex: 4, yIndex: 2, width: 500, height: 500, zoomLevel: 3 },
+      { x: 1500, y: 1500, xIndex: 3, yIndex: 3, width: 500, height: 500, zoomLevel: 3 },
+      { x: 2000, y: 1500, xIndex: 4, yIndex: 3, width: 500, height: 500, zoomLevel: 3 },
+      { x: 1500, y: 2000, xIndex: 3, yIndex: 4, width: 500, height: 500, zoomLevel: 3 },
+      { x: 2000, y: 2000, xIndex: 4, yIndex: 4, width: 500, height: 500, zoomLevel: 3 },
+      { x: 1500, y: 2500, xIndex: 3, yIndex: 5, width: 500, height: 500, zoomLevel: 3 },
+      { x: 2000, y: 2500, xIndex: 4, yIndex: 5, width: 500, height: 500, zoomLevel: 3 },
+      { x: 1500, y: 3000, xIndex: 3, yIndex: 6, width: 500, height: 500, zoomLevel: 3 },
+      { x: 2000, y: 3000, xIndex: 4, yIndex: 6, width: 500, height: 500, zoomLevel: 3 }
     ]
   }])
   t.end()
 })
 
-test('non-full-image', t => {
+test('500x500 on 250 tiles ', t => {
   const levels = calculateLevelData(500, 500, {
     minWidth: 400,
     minHeight: 400,
@@ -143,10 +147,10 @@ test('non-full-image', t => {
     y: 50,
     size: 500,
     tiles: [
-      { tile: { x: -50, y: -50 }, x: 0, y: 0 },
-      { tile: { x: 200, y: -50 }, x: 1, y: 0 },
-      { tile: { x: -50, y: 200 }, x: 0, y: 1 },
-      { tile: { x: 200, y: 200 }, x: 1, y: 1 }
+      { x: 0, y: 0, xIndex: 0, yIndex: 0, width: 250, height: 250, zoomLevel: 1 },
+      { x: 250, y: 0, xIndex: 1, yIndex: 0, width: 250, height: 250, zoomLevel: 1 },
+      { x: 0, y: 250, xIndex: 0, yIndex: 1, width: 250, height: 250, zoomLevel: 1 },
+      { x: 250, y: 250, xIndex: 1, yIndex: 1, width: 250, height: 250, zoomLevel: 1 }
     ]
   }])
   t.end()
