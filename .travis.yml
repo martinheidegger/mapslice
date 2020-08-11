@@ -8,7 +8,7 @@ before_script:
   - > # node > 12 → lint
     node_version=$(node -v);
     if  [ ${node_version:1:3} = "14." ]; then
-      npm run test:lint;
+      npm run test:lint; npm run test:typescript;
     fi
   - > gm version
 script: npm run test:unit

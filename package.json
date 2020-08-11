@@ -9,7 +9,7 @@
     "manipulation"
   ],
   "scripts": {
-    "test": "npm run test:lint && npm run test:unit",
+    "test": "npm run test:lint && npm run test:unit && npm run test:typescript",
     "test:lint": "standard",
     "test:unit": "tap test/*.js test/**/*.js",
     "test:typescript": "npx ts-node -O '{ \"esModuleInterop\": true }' example/example.ts"
