@@ -41,6 +41,7 @@
   },
   "homepage": "https://github.com/martinheidegger/mapslice",
   "dependencies": {
+    "abort-controller": "^3.0.0",
     "gm": "^1.23.1",
     "joi": "^17.2.0",
     "mkdirp": "^1.0.4",

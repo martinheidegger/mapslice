@@ -60,7 +60,8 @@ const mapSlicer = new MapSlicer({
   bitdepth: 8,                       // (optional) See http://aheckmann.github.io/gm/docs.html#dither
   dither: true,                      // (optional) See http://aheckmann.github.io/gm/docs.html#bitdepth
   colors: 128,                       // (optional) See http://aheckmann.github.io/gm/docs.html#colors
-  gm: require('gm')                  // (optional) Alternative way to specify the GraphicsMagic library
+  gm: require('gm'),                 // (optional) Alternative way to specify the GraphicsMagic library
+  signal: new (require('abort-controller'))().signal // (optional) Signal to abort the map slicing process
 })
 
 mapSlicer.on('start', (files, options) => console.info(`Starting to process ${files} files.`))

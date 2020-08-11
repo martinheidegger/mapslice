@@ -1,3 +1,6 @@
+/// <reference types="node"/>
+
+import { AbortSignal } from 'abort-controller'
 
 declare namespace MapSlicer {
 
@@ -5,6 +8,7 @@ declare namespace MapSlicer {
     bitdepth (bitdepth: number): this
     dither (dither: boolean): this
     colors (colors: number): this
+    options (options: { disposers: { emitter: NodeJS.EventEmitter, events: string[] }[]}): this
     draw (drawCommand: string): this
     write (file: string, handler: (error: Error) => any): void
     out(option: string, value: string): this
@@ -30,6 +34,7 @@ declare namespace MapSlicer {
     /** See http://aheckmann.github.io/gm/docs.html#dither                                         */ dither?: boolean
     /** See http://aheckmann.github.io/gm/docs.html#colors                                         */ colors?: number
     /** Alternative way to specify the GraphicsMagic library                                       */ gm?: IImageMagickCompatible
+    /** Signal to abort the map slicing process                                                    */ signal?: AbortSignal
   }
 
   interface ITiles {
