@@ -94,7 +94,16 @@ declare namespace MapSlicer {
 
 declare class MapSlicer {
   constructor (options?: MapSlicer.IMapSlicerOptions)
+
+  /**
+   * Starts the mapslicer process
+   * 
+   * @param options Options for the process, will override any options that are set in the constructor!
+   */
   start (options?: MapSlicer.IMapSlicerOptions): Promise<void>
+
+  /** Options as passed to the constructor */
+  options?: MapSlicer.IMapSlicerOptions
 
   eventNames (): string[]
   listenerCount (event: MapSlicer.Events): number
