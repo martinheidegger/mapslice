@@ -62,6 +62,7 @@ const mapSlicer = new MapSlicer({
   colors: 128,                       // (optional) See http://aheckmann.github.io/gm/docs.html#colors
   gm: require('gm'),                 // (optional) Alternative way to specify the GraphicsMagic library
   signal: new (require('abort-controller'))().signal // (optional) Signal to abort the map slicing process
+  concurrency:1                      // (default: Infinity) Maximum parallel tasks to be run at the same time (warning: processes can consume a lot of memory!)
 })
 
 mapSlicer.on('start', (files, options) => console.info(`Starting to process ${files} files.`))
